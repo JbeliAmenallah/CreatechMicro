@@ -3,6 +3,9 @@ package com.PFE.Microservice.Entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,6 +22,5 @@ public class Contact {
     private String mailAddress;
     private int age;
     private String degree;
-
     // Getters and Setters
 }
