@@ -1,7 +1,7 @@
 package com.PFE.Microservice.Services;
 
-import com.PFE.Microservice.Entity.Conges;
 import com.PFE.Microservice.DTO.CongesDTO;
+import com.PFE.Microservice.Entity.Conges;
 import com.PFE.Microservice.Entity.Contact;
 import com.PFE.Microservice.Repository.CongesRepository;
 import com.PFE.Microservice.Repository.ContactRepository;
@@ -24,6 +24,7 @@ public class CongesService {
         Conges conges = new Conges();
         conges.setStartDate(congesDTO.getStartDate());
         conges.setEndDate(congesDTO.getEndDate());
+        conges.setState(congesDTO.getState());
         Contact contact = contactRepository.findByName(congesDTO.getContactName());
         conges.setContact(contact);
         return congesRepository.save(conges);
@@ -41,7 +42,9 @@ public class CongesService {
         Contact contact = contactRepository.findByName(contactName);
         return congesRepository.findByContact_Name(contact.getName());
     }
-
+    public List<Conges> getCongesByState(String state) {
+        return congesRepository.findByState(state);
+    }
     public Conges updateConges(Long id, CongesDTO congesDTO) {
         Optional<Conges> optionalConges = congesRepository.findById(id);
 
@@ -49,6 +52,7 @@ public class CongesService {
             Conges existingConges = optionalConges.get();
             existingConges.setStartDate(congesDTO.getStartDate());
             existingConges.setEndDate(congesDTO.getEndDate());
+            existingConges.setState(congesDTO.getState());
             Contact contact = contactRepository.findByName(congesDTO.getContactName());
             existingConges.setContact(contact);
             return congesRepository.save(existingConges);

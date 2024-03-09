@@ -13,12 +13,12 @@ public interface CongesMapper {
     @Mapping(source = "startDate", target = "startDate")
     @Mapping(source = "endDate", target = "endDate")
     @Mapping(source = "contact.id", target = "contactId") // Map contact.id to contactId
-
+    @Mapping(source = "state", target = "state") // Map state
     CongesDTO congesToCongesDto(Conges conges);
 
     @Mapping(source = "startDate", target = "startDate")
     @Mapping(source = "endDate", target = "endDate")
     @Mapping(source = "contactId", target = "contact") // Map contactId to contact
-
+    @Mapping(source = "state", target = "state") // Map state
     Conges congesDtoToConges(CongesDTO congesDTO);
 }

@@ -24,6 +24,6 @@ public class Conges {
     @ManyToOne
     @JoinColumn(name = "contact_id")
     private Contact contact;
-
+    private String state; // New attribute
     // Getters and Setters
 }

@@ -42,7 +42,10 @@ public class CongesController {
         List<Conges> congesList = congesService.getCongesByContactName(contactName);
         return new ResponseEntity<>(congesList, HttpStatus.OK);
     }
-
+    @GetMapping("/byState/{state}")
+    public List<Conges> getCongesByState(@PathVariable String state) {
+        return congesService.getCongesByState(state);
+    }
     @PutMapping("/update/{id}")
     public ResponseEntity<Conges> updateConges(@PathVariable Long id, @RequestBody CongesDTO congesDTO) {
         Conges updatedConges = congesService.updateConges(id, congesDTO);

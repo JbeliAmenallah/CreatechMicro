@@ -8,4 +8,5 @@ import java.util.List;
 public interface CongesRepository extends JpaRepository<Conges,Long> {
     // Custom query to find Conges by Contact name
     List<Conges> findByContact_Name(String contactName);
+    List<Conges> findByState(String state);
 }
