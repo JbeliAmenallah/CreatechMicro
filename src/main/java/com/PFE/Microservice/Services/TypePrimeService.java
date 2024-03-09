@@ -17,7 +17,15 @@ public class TypePrimeService {
     private TypePrimeRepository typePrimeRepository;
 
     public TypePrime saveTypePrime(TypePrimeDTO typePrimeDTO) {
-        TypePrime typePrime = TypePrimeMapper.INSTANCE.dtoToEntity(typePrimeDTO);
+        TypePrime typePrime = new TypePrime();
+
+        // Set attributes manually
+        typePrime.setCode(typePrimeDTO.getCode());
+        typePrime.setLibele(typePrimeDTO.getLibele());
+        typePrime.setCnss(typePrimeDTO.getCnss());
+        typePrime.setImpo(typePrimeDTO.getImpo());
+        typePrime.setMontant(typePrimeDTO.getMontant());
+        typePrime.setType(typePrimeDTO.getType());
         return typePrimeRepository.save(typePrime);
     }
 
