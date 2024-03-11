@@ -24,7 +24,7 @@ public class PrimeController {
         return new ResponseEntity<>(prime, HttpStatus.CREATED);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/retrieve")
     public ResponseEntity<List<Prime>> getAllPrimes() {
         List<Prime> primes = primeService.getAllPrimes();
         return new ResponseEntity<>(primes, HttpStatus.OK);
